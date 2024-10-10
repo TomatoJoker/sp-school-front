@@ -109,7 +109,6 @@ const style = () => {
         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
         .pipe(prefix('last 10 versions'))
         .pipe(sourceMaps.write('/'))
-        .pipe(gulp.dest(`assets/css/`))
         .pipe(gulp.dest(`${dist}/css/`))
 };
 exports.style = style;
@@ -123,7 +122,6 @@ const styleMin = () => {
         .pipe(cleanCSS())
         .pipe(rename({suffix: '.min'}))
         .pipe(sourceMaps.write('/'))
-        .pipe(gulp.dest(`assets/css/`))
         .pipe(gulp.dest(`${dist}/css/`))
         .pipe(reload({stream: true}));
 };
@@ -157,7 +155,6 @@ const js = () => {
         .pipe(gulp.dest(`${dist}/js`))
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(`assets/js`))
         .pipe(gulp.dest(`${dist}/js`))
         .pipe(reload({stream: true}));
 };
@@ -171,7 +168,6 @@ const jsLibs = () => {
         'node_modules/imask/dist/imask.min.js',
       ]
   )
-      .pipe(gulp.dest(`assets/js/`))
       .pipe(gulp.dest(`${dist}/js/`));
 };
 
