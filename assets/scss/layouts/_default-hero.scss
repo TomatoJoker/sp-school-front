@@ -1,0 +1,22 @@
+.default-hero {
+  padding-top: 10px;
+
+  &__small {
+    padding-bottom: 30px;
+  }
+
+  &__img {
+    margin-top: 10px;
+
+    @include media($desktop) {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__heading {
+    margin-top: $m-medium;
+    max-width: 609px;
+  }
+
+}

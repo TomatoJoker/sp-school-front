@@ -1,0 +1,92 @@
+{# include style #}
+{% set title = 'Кіновечір' %}
+{% set breadcrumbsChild = 'Дозвілля' %}
+{% set stylesPage = ['movie-night-page'] %}
+{# {% set stylesVendor = ['your-name-vendor-style-name'] %} #}{# include style vendor #}
+{% set scriptsVendor = ['imask'] %}  {# include style vendor #}
+{% set scripts = ['contact-mask'] %}
+
+{% import "components/social.njk" as social %}
+{% set social = social.social %}
+{% import "components/card-row.njk" as cardRow %}
+{% set cardRow = cardRow.cardRow %}
+{% import 'components/list-images.njk' as macro %}
+{% set listImages = macro.listImages %}
+{% import "layouts/sections.njk" as sections %}
+{% set heroDefault = sections.heroDefault %}
+{% set cardSection = sections.cardSection %}
+{% set friends = sections.friends %}
+{% set banner = sections.banner %}
+{% set aboutRow = sections.aboutRow %}
+
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include 'components/header.njk' %}
+        <main class="main">
+
+            <section class="default-hero section section__half">
+                <div class="container">
+                    {% include 'components/breadcrumbs.njk' %}
+                    <img class="default-hero__img"
+                         src="{{ imgUrl }}camp.jpg" width="1317"
+                         height="422" alt="">
+                    <div class="heading default-hero__heading">
+                        <h1 class="h1-title title-dark">Кіновечір</h1>
+                        <h2 class="heading__subtitle title-dark h3-title">ЯК ПРОВОДИМО ВІЛЬНИЙ ЧАС В НАШІЙ ШКОЛІ?</h2>
+                        <div class="heading__description heading__description-large">
+                            <p>SP SCHOOL -це сучасна школа англійської мови, де навчання перетворюється на цікаву та
+                                інтерактивну мандрівку. Наші досвідчені викладачі знають підхід до кожного учня та
+                                застосовують інноваційні методи, щоб швидко надати середу. для ефективного вивчення
+                                англійської мови</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {{ aboutRow() }}
+
+            {% call cardSection(
+                class = 'section__half'
+                ) %}
+                {% call cardRow(
+                    'МИ ПРОПОНУЄМО:',
+                    'Як краще вивчити англійську? Звичайно у таборі!',
+                    img = imgUrl + 'camp-img.jpg',
+                    btn = 'Записатись на 2025',
+                    class = 'card-row__reverse',
+                    imgUrl = imgUrl,
+                    rowSecond = true,
+                    h2Title = true
+                    )
+                %}
+                    <div class="card-row__content content">
+                        {% set list = [
+                            '<b>Вправи з англійскої</b>' | safe,
+                            '<b>Вожаті- викладачі англійської мови</b>' | safe,
+                            '<strong>10 днів</strong>' | safe,
+                            '<strong>Дискотеки</strong>' | safe,
+                            '<strong>Подорожі</strong>' | safe,
+                            '<strong>Екскурсії</strong>' | safe,
+                            '<strong>Конкурси та ігри</strong>' | safe
+                        ] %}
+                        <ul>
+                            {% for text in list %}
+                                <li>{{ text }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endcall %}
+            {% endcall %}
+
+            {{ banner(
+                img = imgServerUrl,
+                imgIcon = iconUrl
+            ) }}
+
+            {% include 'components/contact.njk' %}
+        </main>
+        {% include 'components/footer.njk' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,110 @@
+.price {
+  position: relative;
+  z-index: 0;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    background-image: url("../img/why-us-decor-small.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    @include size(383);
+    transform: scaleX(-1);
+    z-index: 1;
+  }
+
+  &:before {
+    left: 39px;
+    bottom: 268px;
+  }
+
+  &:after {
+    right: 137px;
+    top: 40px;
+  }
+
+  .container {
+    z-index: 2;
+    position: relative;
+  }
+
+  $gap: 10px;
+  &__row {
+    @include min-media($tablet) {
+      display: flex;
+      gap: $gap;
+      flex-wrap: wrap;
+    }
+  }
+
+  $padding: 30px;
+  &__item {
+    @extend %radius;
+    background: $light;
+    padding: $padding;
+    padding-bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include media($tablet) {
+      @include mb(30px);
+    }
+
+    @include min-media($tablet) {
+      @include flex-basis-responsive(2, $gap);
+    }
+
+    @include min-media($desktop) {
+      @include flex-basis-responsive(4, $gap);
+    }
+  }
+
+  &__item-text {
+    margin-top: 30px;
+  }
+
+  &__item-list {
+    margin-top: 30px;
+  }
+
+  &__item-bottom {
+    margin-top: 50px;
+    align-self: flex-end;
+    margin-right: calc(0px - #{$padding});
+    min-width: calc(100% + #{$padding});
+  }
+
+  &__item-time {
+    margin-top: 10px;
+    display: flex;
+    gap: 18px;
+    font-weight: 700;
+    color: $second-text;
+
+    span {
+      font-weight: 400;
+    }
+
+  }
+
+  &__item-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+  }
+
+  &__item-btn-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .button-row {
+    margin-top: $m-medium;
+  }
+}

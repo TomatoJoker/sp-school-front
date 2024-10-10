@@ -1,0 +1,22 @@
+.social {
+
+  &__row {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__item {
+
+    a {
+      display: block;
+      color: $dark-accent;
+
+      @include hover {
+        color: $text-accent;
+      }
+    }
+  }
+
+}

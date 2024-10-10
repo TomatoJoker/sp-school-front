@@ -1,0 +1,16 @@
+<div class="lang js-dropdown-wrapper">
+    {% set lang = ['En', 'Ua'] %}
+    <button type="button" class="btn-full-reset lang__current js-dropdown-btn" aria-expanded="false">
+        {{ lang[0] }}
+        <svg width="24" height="24" class="icon icon__fill">
+            <use href="{{ iconUrl }}#arrow-down"></use>
+        </svg>
+    </button>
+    <ul class="lang__list js-dropdown-block">
+        {% for item in lang %}
+            <li class="lang__item">
+                <a class="link" href="#">{{ item }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

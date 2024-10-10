@@ -1,0 +1,39 @@
+{% import "components/menu.njk" as macros %}
+{% set menu = macros.menu %}
+{% set menuData = ['Про нас', 'Ціни', 'Дозвілля', 'Цікаво', 'Контакти', 'Правилами ресурсу та публічна оферта'] %}
+
+
+<footer class="footer section section__accent-light">
+    <div class="container">
+        <div class="footer__row">
+            <div class="footer__logo footer__col">
+                <a href="/" class="logo">
+                    <img src="{{ imgUrl }}logo-large.svg" alt="" width="156" height="63">
+                </a>
+                <p class="footer__description">школа англійської мови</p>
+                <a href="https://www.sp-school.com.ua/wp-admin/" class="footer__mob-btn btn btn__dark btn__small">
+                    <svg width="20" height="18">
+                        <use href="./sprite/sprite.svg#book"></use>
+                    </svg>
+                    Особистий щоденник
+                </a>
+            </div>
+            <nav class="footer__menu footer__col">
+                {{ menu(menuData) }}
+            </nav>
+            <div class="footer__links-col footer__col">
+                <a href="https://www.sp-school.com.ua/wp-admin/" class="footer__desk-btn btn btn__dark btn__small">
+                    <svg width="20" height="18">
+                        <use href="./sprite/sprite.svg#book"></use>
+                    </svg>
+                    Особистий щоденник
+                </a>
+                {{ social(iconUrl, 'contact__social') }}
+            </div>
+            <div class="footer__address-col footer__col">
+                {% include 'components/address.njk' %}
+                {% include 'components/lang.njk' %}
+            </div>
+        </div>
+    </div>
+</footer>

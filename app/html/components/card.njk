@@ -1,0 +1,14 @@
+{% macro card(title, text, class) %}
+    <div class="card{{ ' ' + class if class}}">
+        <div class="card__image-wrapper">
+            {{ caller() }}
+        </div>
+        <div class="card__heading">
+            <h3 class="h3-title title-dark">{{ title }}</h3>
+            <div class="card__description">
+                <p>{{ text }}</p>
+            </div>
+        </div>
+
+    </div>
+{% endmacro %}

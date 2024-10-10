@@ -1,0 +1,41 @@
+.card {
+  padding: 36px 8px;
+  background: $light;
+  @extend %radius;
+
+  @include min-media($tablet-pro) {
+    padding: 51px 25px;
+  }
+
+  &__image-wrapper {
+
+    img {
+      @include media($desktop) {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+  }
+
+  &__heading {
+    margin-top: 10px;
+
+    @include min-media($tablet-pro) {
+      margin-top: $m-small;
+    }
+
+  }
+
+  &__description {
+    margin-top: 10px;
+  }
+
+  &__accent {
+    background: $accent;
+
+    @include min-media($tablet-pro) {
+      padding-top: 76px;
+    }
+  }
+}

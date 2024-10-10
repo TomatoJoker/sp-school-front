@@ -1,0 +1,9 @@
+{% macro heading(title, description, class, classTitle, classDesc) %}
+    <div class="heading{{ ' ' + class if class }}">
+        <h2 class="h2-title{{ ' ' + classTitle if classTitle }}">{{ title }}</h2>
+        <div class="heading__description{{ ' ' + classDesc if classDesc }}">
+            <p>{{ description }}</p>
+        </div>
+        {{ caller() }}
+    </div>
+{% endmacro %}

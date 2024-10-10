@@ -1,0 +1,40 @@
+.history {
+  max-width: 499px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 47px;
+    @include mt(22px);
+    position: relative;
+
+    @include min-media($tablet-pro) {
+      display: grid;
+      grid-template-columns: auto 65px 170px 1fr;
+      padding-left: 0px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      @include size(15);
+      border-radius: 50%;
+      background: $accent;
+
+      @include min-media($tablet-pro) {
+        position: static;
+      }
+    }
+  }
+
+  &__list {
+    padding-left: 21px;
+
+    li {
+      list-style: disc;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &-item {
+
+    a {
+      @extend %radius;
+      padding: 0 5px;
+      display: inline-block;
+
+      @include hover {
+        background: $accent;
+      }
+    }
+
+  }
+}

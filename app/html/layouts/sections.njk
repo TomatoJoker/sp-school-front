@@ -1,0 +1,320 @@
+{% import "components/heading.njk" as heading %}
+{% set heading = heading.heading %}
+{% import "components/buttons-row.njk" as buttonsRow %}
+{% set buttonsRow = buttonsRow.buttonsRow %}
+
+{% macro hero(listTags, title, icon, subtitle, imgDecor, list, img) %}
+    <section class="hero section section__accent-light section__decor">
+        <div class="container">
+            <div class="hero__row">
+                <div class="hero__left">
+                    <ul class="hero__tags hero__desktop tags">
+                        {% for listItem in listTags %}
+                            <li class="tags__item">{{ listItem }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="hero__title-wrapper">
+                        <h1 class="hero__title h1-title title-dark">{{ title }}</h1>
+                        <div class="hero__label label">в Полтаві
+                            <svg class="icon icon__fill" width="42" height="56">
+                                <use href="{{ icon }}"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <h2 class="hero__subtitle h3-title title-dark">{{ subtitle }}</h2>
+                    {{ buttonsRow(class = 'hero__btn-row', linkClass = 'title-dark') }}
+                    <ul class="hero__list">
+                        {% for text, link in list %}
+                            <li class="hero__list-item">
+                                {% if link %}
+                                    <a class="hero__list-link" href="#">{{ text }}</a>
+                                {% else %}
+                                    {{ text }}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="hero__right">
+                    <img src="{{ imgDecor }}" width="417" height="514" alt="">
+                </div>
+            </div>
+            <img class="hero__img" src="{{ img }}" alt="" width="1317" height="272">
+            <ul class="hero__tags hero__mobile tags">
+                {% for listItem in listTags %}
+                    <li class="tags__item">{{ listItem }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro whyUs(img, title, description, secondTitle, list) %}
+    <section class="why-us section section__accent section-decor">
+        <div class="container">
+            <div class="why-us__row">
+                <div class="why-us__item">
+                    <img src="{{ img }}" width="192" height="78" alt="">
+                    {% call heading(title, description, 'why-us__heading', 'title-dark', 'heading__description-large') %}{% endcall %}
+                </div>
+                {{ caller() }}
+                <div class="why-us__item why-us__info">
+                    <h2 class="h2-title heading__medium title-dark">{{ secondTitle }}</h2>
+                    <ul class="why-us__list">
+                        {% for listItem in list %}
+                            <li class="why-us__list-item">{{ listItem }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro journal(title, description, img, listCards) %}
+    <section class="journal section section__accent-light">
+        <div class="container">
+            <div class="journal__row">
+                {% call heading(title, description, 'journal__heading-wrapper', 'title-accent','heading__description-large') %}
+                    {{ buttonsRow(class = 'heading__buttons-row') }}
+                {% endcall %}
+                <img class="journal__img" src="{{ img }}" width="539" height="382" alt="">
+            </div>
+            <ul class="journal__card-wrapper">
+                {% for listCard in listCards %}
+                    <li class="journal__card">
+                        <div class="journal__card-icon">
+                            <svg class="icon" width="24" height="24">
+                                <use href="{{ iconUrl }}{{ listCard.icon }}"></use>
+                            </svg>
+                        </div>
+                        <h3 class="journal__title h3-title">{{ listCard.title }}</h3>
+                        <div class="journal__card-text">
+                            <p>{{ listCard.text }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro price(title, subtitle, list) %}
+    <section class="price section section__accent">
+        <div class="container">
+            {% call heading(title, subtitle, classTitle = 'title-dark', classDesc = 'heading__description-large h3-title') %}
+            {% endcall %}
+            <ul class="price__row">
+                {% for listItem in list %}
+                    <li class="price__item">
+                        <h3 class="h3-title">{{ listItem.title }}</h3>
+                        <div class="price__item-text text-small">
+                            <p>Заняття проходять на нашій інтерактивній платформі, де зібрано усе: зв’язок з тічером
+                                та саппортом, домашні завдання й інші корисні інструменти.</p>
+                        </div>
+                        <div class="content">
+                            <ul class="price__item-list">
+                                {% for item in listItem.list %}
+                                    <li class="h4-title">
+                                        {{ item }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="price__item-bottom">
+                            <p class="price__item-label text-small">ціна</p>
+                            <div class="price__item-time">{{ listItem.time }}</div>
+                            <div class="price__item-price">
+                                <h4 class="h3-title">{{ listItem.price[0] }}</h4>
+                                <p>{{ listItem.price[1] }}</p>
+                            </div>
+                            <div class="price__item-btn-row">
+                                <a href="#" class="link">детальніше</a>
+                                <button type="button" class="btn-full-reset btn btn__dark">{{ 'ЗАПИСАТИСЬ' | lower }}</button>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% include 'components/price-button-row.njk' %}
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro reviews(title, subtitle, img, iconUrl) %}
+    <section class="reviews section section__accent">
+        <div class="container">
+            {% call heading(title, subtitle, classTitle = 'title-dark', classDesc = 'heading__description-large h3-title title-dark') %}
+            {% endcall %}
+            <div class="reviews__list">
+                <div class="reviews__helper">
+                    <svg class="icon icon__fill" width="27" height="35">
+                        <use href="{{ iconUrl }}#hand-click"></use>
+                    </svg>
+                </div>
+                <ul class="reviews__images">
+                    {% for i in range(1, 7) %}
+                        <li class="reviews__item">
+                            <img src="{{ img }}review-{{ i }}.jpg" width="208" height="354" alt="">
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% include 'components/price-button-row.njk' %}
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro friends(title = 'Наші друзі', class, imgUrl) %}
+    <section class="friends section{{ ' ' + class if class}}">
+        <div class="container">
+            <h2 class="friends__title h2-title title-dark heading__medium">{{ title }}</h2>
+            <ul class="friends__list">
+                {% for i in range(1, 9) %}
+                    <li class="friends__image">
+                        <img src="{{ imgUrl }}brand-{{ i }}.png" alt="">
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro blogSection(title, img, list, btn, tabs, btnClass, class = 'section__accent') %}
+    <section class="blog-section section {{ ' ' + class if class }}">
+        <div class="container">
+            <h2 class="h2-title title-dark heading heading__medium{{ ' visually-hidden' if title === 'Блог' }}">{{ title }}</h2>
+            {% if tabs %}
+                <ul class="blog-section__tags tags tags__block">
+                    {% for item, class in tabs %}
+                        <li>
+                            <a class="tags__item{{ ' tags__current' if class }}" href="#">{{ item }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <ul class="blog-section__row">
+                {% for i in list %}
+                    <li class="blog-section__item">
+                        <a href="#">
+                            <div class="blog-section__img">
+                                <img src="{{ img }}zoo{{ i }}.jpg" width="312" height="252" alt="">
+                            </div>
+                            <div class="blog-section__description">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="blog-section__btn-wrapper{{ ' ' + btnClass if btnClass }}">
+                <a href="#" class="btn">{{ btn }}</a>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro heroDefault(title, titleText, Text, img, breadcrumbsChild, class = 'section section__half') %}
+    <section class="default-hero{{ ' ' + class if class }}">
+        <div class="container">
+            {% include 'components/breadcrumbs.njk' %}
+            <img class="default-hero__img" src="{{ img }}" width="1317" height="422" alt="">
+            <div class="heading default-hero__heading">
+                {% if titleText %}
+                    <h1 class="h1-title title-dark">{{ titleText }}</h1>
+                {% endif %}
+                {% if Text %}
+                    <div class="heading__description heading__description-large">
+                        <p>SP SCHOOL -це сучасна школа англійської мови, де навчання перетворюється на цікаву та
+                            інтерактивну мандрівку. Наші досвідчені викладачі знають підхід до кожного учня та
+                            застосовують інноваційні методи, щоб швидко надати середу. для ефективного вивчення
+                            англійської мови</p>
+                    </div>
+                {% endif %}
+                {{ caller() }}
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro banner(class, img, imgIcon) %}
+    <section class="banner section section__half">
+        <div class="container">
+            <div class="banner__inner{{ ' ' + class if class }}">
+                <div class="banner__left">
+                    {% call heading(
+                        'Мы в соцальних мережах:',
+                        'Підишись щоб бути в курсі нашого життя, наших новин та бути з нами на одній хвилі',
+                        class = 'banner__heading',
+                        classTitle = 'banner__title',
+                        classDesc = 'h4-title'
+                        )
+                    %}
+                    {% endcall %}
+                    {% set social = ['facebook', 'instagram'] %}
+                    <ul class="banner__social social social__row">
+                        {% for item in social %}
+                            <li class="social__item">
+                                <a href="#" target="_blank" rel="nofollow" aria-label="link to {{ item }}">
+                                    <svg class="icon icon__fill" width="38" height="38">
+                                        <use href="{{ imgIcon }}#{{ item }}"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <img class="banner__img" src="{{ img }}banner-img.png" width="298" height="240" alt="">
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro aboutRow() %}
+    <section class="about-row section section__half">
+        <div class="container">
+            <h2 class="visually-hidden">Про нас</h2>
+            {% set aboutList = [
+                [
+                    '>10 000<br> учнів' | safe,
+                    'пройшло через<br> нашу школу' | safe
+                ],
+                [
+                    'ЕЛЕКТРОННИЙ<br> ЩОДЕННИК' | safe,
+                    'всі завдання у<br> сматфоні!' | safe
+                ],
+                [
+                    'Працюємо з<br> 1992 року' | safe,
+                    'пройшло через<br> нашу школу' | safe
+                ],
+                [
+                    'Табори, Фільми та<br> інтерактив' | safe,
+                    'всі завдання у<br> сматфоні!' | safe
+                ]
+            ] %}
+            <ul class="about-row__list">
+                {% for title, desc in aboutList %}
+                    <li class="about-row__item">
+                        <h3 class="h3-title title-accent">{{ title }}</h3>
+                        <div class="about-row__desc h4-title">
+                            <p>{{ desc }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro cardSection(title, class) %}
+    <section class="card-section section{{ ' ' + class }}">
+        <div class="container">
+            {% if title %}
+                <h2 class="visually-hidden">{{ title }}</h2>
+            {% endif %}
+            <ul>
+                {{ caller() }}
+            </ul>
+        </div>
+    </section>
+{% endmacro %}

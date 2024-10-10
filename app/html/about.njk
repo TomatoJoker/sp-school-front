@@ -1,0 +1,170 @@
+{# include style #}
+{% set title = 'Про нас' %}
+{% set stylesPage = ['about-page'] %}
+{# {% set stylesVendor = ['your-name-vendor-style-name'] %} #}{# include style vendor #}
+{% set scriptsVendor = ['imask'] %}  {# include style vendor #}
+{% set scripts = ['contact-mask'] %}
+
+{% import "components/social.njk" as social %}
+{% set social = social.social %}
+{% import "components/card-row.njk" as cardRow %}
+{% set cardRow = cardRow.cardRow %}
+{% import "layouts/sections.njk" as sections %}
+{% set heroDefault = sections.heroDefault %}
+{% set cardSection = sections.cardSection %}
+{% set friends = sections.friends %}
+{% set banner = sections.banner %}
+{% set aboutRow = sections.aboutRow %}
+
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include 'components/header.njk' %}
+        <main class="main">
+
+            {% call heroDefault(
+                title,
+                'SP SCHOOL - це',
+                true,
+                imgUrl + 'about.jpg'
+                ) %}
+                <div class='heading__buttons-row'>
+                    <a href="#" class="btn btn__dark">Про нас</a>
+                </div>
+            {% endcall %}
+
+            {{ aboutRow() }}
+
+            {% call cardSection(
+                class = 'section__half'
+                ) %}
+                {% call cardRow(
+                    'Для нас важливо',
+                    img = imgUrl + 'about-img.jpg',
+                    btn = 'Сторінка про нас',
+                    h2Title = true
+                    ) %}
+                {% endcall %}
+            {% endcall %}
+
+            {% call cardSection(
+                class = 'section__half'
+            ) %}
+                <li class="card-row card-row__reverse">
+                    <div class="card-row__item card-row__text-wrapper">
+                        <div class="heading">
+                            <h2 class="card-row__title title-dark h2-title">Наша історія:</h2>
+                            <p class="card-row__description heading__description h3-title title-dark">
+                                Коротко, як розвивалась наша школа
+                            </p>
+                        </div>
+                        <div>
+                            <p>SP SCHOOL -це сучасна школа англійської мови, де навчання перетворюється на цікаву та
+                                інтерактивну
+                                мандрівку. Наші досвідчені викладачі знають підхід до кожного учня та застосовують
+                                інноваційні
+                                методи, щоб швидко надати середу. для ефективного вивчення англійської мови</p>
+                        </div>
+                        <ul class="card-row__content history">
+                            {% set history = [
+                                {
+                                    title: '1992',
+                                    text: 'Започаткували школу Англійської мови.',
+                                    list: [
+                                        'Перші 50учнів,',
+                                        'Відкрито 10 классів,',
+                                        '10 викладачів.',
+                                        'Перше приміщення'
+                                    ]
+                                },
+                                {
+                                    title: '2000',
+                                    text: 'Розширення кабінетів та штату викладачів, Сертифікати про навчання',
+                                    list: [
+                                        'Нові досягнення школи! наші учні встапають до виші,',
+                                        'Ми проводимо стабільні курси для підвищення кваліфікації викладачів. ',
+                                        'Отримання нагород'
+                                    ]
+                                },
+                                {
+                                    title: '2016',
+                                    text: 'Нові системи навчання,Организація поїздки до Таборів Англійської мови для дітей',
+                                    list: [
+                                        'Организація поїздок дітей до нашого Табору Англійської мови.',
+                                        'більше 100 дітей поїхало на 2 тижні у Карпати '
+                                    ]
+                                },
+                                {
+                                    title: '2024',
+                                    text: 'Модифікація та автоматизація навчання',
+                                    list: [
+                                        'Табори на постійній основі',
+                                        'Створення електронного щоденника',
+                                        'Більше 30 класів',
+                                        'Більше 10 викладачів'
+                                    ]
+                                },
+                                {
+                                    title: '2025',
+                                    text: 'Плани на майбутне',
+                                    list: [
+                                        'Створення ще більше кабінетів',
+                                        'Створення он-лайн классів для навчання',
+                                        'Поїздка до Табору Англійської мови',
+                                        'та ще багато чого'
+                                    ],
+                                    class: 'title-accent'
+                                }
+                            ] %}
+                            {% for item in history %}
+                                <li class="history__item">
+                                    <h3 class="h3-title{{ ' ' + item.class if item.class }}{{ ' title-dark' if item.class === undefined }}">{{ item.title }}</h3>
+                                    <p class="h4-title">{{ item.text }}</p>
+                                    <ul class="history__list">
+                                        {% for listItem in item.list %}
+                                            <li>{{ listItem }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                        <div class="card-row__btn">
+                            <a href="#" class="btn btn__dark">Сторінка про дозвілля</a>
+                        </div>
+                    </div>
+                    <div class="card-row__item card-row__img">
+                        <img src="{{ imgUrl }}history.png" width="502"
+                             height="893" alt="">
+                    </div>
+                </li>
+            {% endcall %}
+
+            {% call cardSection(
+                class = 'section__half'
+                ) %}
+                {% call cardRow(
+                    'Для нас важливо',
+                    img = imgUrl + 'card-row-1.jpg',
+                    btn = 'Сторінка про нас',
+                    h2Title = true
+                    ) %}
+                {% endcall %}
+            {% endcall %}
+
+            {{ banner(
+                img = imgServerUrl,
+                imgIcon = iconUrl
+            ) }}
+
+            {{ friends(
+                class = 'section section__half',
+                imgUrl = imgUrl
+            ) }}
+
+            {% include 'components/contact.njk' %}
+        </main>
+        {% include 'components/footer.njk' %}
+    </div>
+{% endblock %}

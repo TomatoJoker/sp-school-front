@@ -1,0 +1,134 @@
+{# include style #}
+{% set title = 'Was Were: правила вживання та як зробити так, щоб не плутати їх' %}
+{% set breadcrumbsChild = title %}
+{% set stylesPage = ['single-page'] %}
+{% set scripts = ['contact-mask'] %}
+
+{% import "components/social.njk" as social %}
+{% set social = social.social %}
+
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include 'components/header.njk' %}
+        <main class="main">
+            <section class="single section section__half-bottom">
+                <div class="container">
+                    {% include 'components/breadcrumbs.njk' %}
+                    <div class="single__row">
+                        <div class="single__sidebar">
+                            <a class="back-link" href="#">
+                                <svg width="20" height="20">
+                                    <use href="{{ iconUrl }}#arrow-left"></use>
+                                </svg>
+                                ПОВЕРНУТИСЬ</a>
+                        </div>
+                        <div class="single__content content">
+                            <h1>Was Were: правила вживання та<br>
+                                як зробити так, щоб не плутати їх</h1>
+                            <img src="{{ imgUrl }}blog.jpg" alt="">
+                            <h2>Що означають дієслова was та were та з чим їх їдять</h2>
+                            <p>Почнемо з дієслова to be (бути), з якого ми стартуємо у вивченні англійської мови. Так
+                                от, дієслова was та were — його попередники, а якщо бути точнішими, форми минулого часу
+                                цього дієслова. Отже, значення дієслів was/were — був/була/були. Крім форми минулого
+                                часу дієслова “to be”, “was” та “were” є елементами інших конструкцій та речень.</p>
+                            <h2>6 випадків вживання was/were</h2>
+                            <p>Усі знають дієслова was та were як форми минулого часу дієслова to be. Так і є, це їхнє
+                                основне призначення. Та якщо подивитися на картинку більш широко, was та were також є
+                                обов’язковими елементами інших конструкцій.
+                            </p>
+                            <p>Ось основні шість випадків, у яких без was та were не обійтися:</p>
+                            <p>дієслово to be минулого часу,<br>
+                                конструкція “there was/there were”,<br>
+                                Past Continuous,<br>
+                                пасивні конструкції,<br>
+                                умовні речення з if та wish,<br>
+                                незліченні іменники.</p>
+                        </div>
+                    </div>
+                    <div class="banner single__banner banner__inner">
+                        <div class="banner__left">
+                            <div class="heading banner__heading">
+                                <h2 class="h2-title banner__title">Мы в соцальних мережах:</h2>
+                                <div class="heading__description h4-title">
+                                    <p>Підишись щоб бути в курсі нашого життя, наших новин та бути з нами на одній
+                                        хвилі</p>
+                                </div>
+                            </div>
+                            <ul class="banner__social social social__row">
+                                <li class="social__item">
+                                    <a href="#" target="_blank" rel="nofollow" aria-label="link to facebook">
+                                        <svg class="icon icon__fill" width="38" height="38">
+                                            <use href="./sprite/sprite.svg#facebook"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" target="_blank" rel="nofollow" aria-label="link to instagram">
+                                        <svg class="icon icon__fill" width="38" height="38">
+                                            <use href="./sprite/sprite.svg#instagram"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <img class="banner__img" src="./img/banner-img.png" width="298" height="240" alt="">
+                    </div>
+                    <div class="single__row">
+                        <div class="single__sidebar">
+
+                        </div>
+                        <div class="single__content content">
+                            <h2>Was vs Were</h2>
+                            <p>Перше, на що слід опиратися: підмет. Якщо він виражений іменником в однині (або
+                                займенниками I, she, he, it) — ставимо was. Якщо іменником виражений підмет у множині
+                                (або займенники you, we, they) — вживаємо were. Знаємо, як ви любите виключення в
+                                англійській мові, але тут воно також є.</p>
+
+                            <h2>Що означають дієслова was та were та з чим їх їдять</h2>
+                            <p>Здебільшого, дієслова was/were вживаються для опису якостей, професій або
+                                місцерозташування у минулому:
+                            <ul>
+                                {% for item in range(1, 4) %}
+                                    <li>Kate was a law and slim — Кейт була низькою та стрункою.</li>
+                                {% endfor %}
+                            </ul>
+                            </p>
+                            <img src="{{ imgUrl }}laptop.jpg" alt="">
+                            <h2>Як поводяться was та were у заперечних реченнях</h2>
+                            <p>Перше, на що слід оУсе дуже просто: до дієслова was/were потрібно додати частку not. Як
+                                це працює:</p>
+                            <p>The noodles were not as tasty as I imagined — Локшина була не такою смачною, як я її
+                                уявляв.<br>
+                                They were not at home, when I came — Їх не було вдома, коли я прийшов.<br>
+                                А якщо ще й спростити, це матиме такий вигляд: wasn’t/weren’t:
+                            </p>
+                            <p>Jack wasn’t upbeat during the meeting today — Джек не був піднесеним під час зустрічі
+                                сьогодні.
+                                You weren’t hungry, when we came into a cafe — Ти не була голодною, коли ми зайшли до
+                                кафе.пиратися: підмет. Якщо він виражений іменником в однині (або займенниками I, she,
+                                he, it) — ставимо was. Якщо іменником виражений підмет у множині (або займенники you,
+                                we, they) — вживаємо were. Знаємо, як ви любите виключення в англійській мові, але тут
+                                воно також є.</p>
+                            <h2>Особливості was та were у питальних реченнях</h2>
+                            <p>Ми звикли, що питальне речення у Past Simple утворюється за допомогою допоміжного
+                                дієслова у минулому часі — did. У випадку питального речення з was/were логіка трохи
+                                інша. Was/were грають роль допоміжного дієслова to do.
+                                Отже, ставите was/where на початок речення, далі — підмет, а все інше залишаємо без
+                                змін:
+                                Was he the HR manager or recruiter? — Він був HR-менеджером чи рекрутером?
+                                Were they at this place last year? — Чи були вони на цьому місці минулого року?
+                                З wasn’t/weren’t схема аналогічна:
+                                Wasn’t Nick at Tom’s birthday party? — Хіба Нік не був на день народженні у Тома?
+                                Weren’t you sick last weekend? — Хіба ти не хворів на минулих вихідних?</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% include 'components/contact.njk' %}
+        </main>
+        {% include 'components/footer.njk' %}
+    </div>
+{% endblock %}

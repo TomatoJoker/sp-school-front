@@ -1,0 +1,102 @@
+{% set title = 'Дозвілля' %}
+{% set stylesPage = ['hobby-page'] %}
+{#{% set stylesVendor = ['your-name-vendor-style-name'] %} #}{# include style vendor #}
+{% set scriptsVendor = ['imask'] %}  {# include style vendor #}
+{% set scripts = ['contact-mask'] %}
+
+{% import "components/social.njk" as social %}
+{% set social = social.social %}
+{% import "components/card-row.njk" as cardRow %}
+{% set cardRow = cardRow.cardRow %}
+{% import "layouts/sections.njk" as sections %}
+{% set heroDefault = sections.heroDefault %}
+{% set cardSection = sections.cardSection %}
+{% set friends = sections.friends %}
+{% set banner = sections.banner %}
+{% set aboutRow = sections.aboutRow %}
+
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include 'components/header.njk' %}
+        <main class="main">
+            {% call heroDefault(
+                title,
+                'Дозвілля',
+                true,
+                imgUrl + 'hobby.jpg'
+                ) %}
+            {% endcall %}
+
+            {% call cardSection(
+                class = 'section__half'
+                ) %}
+                {% call cardRow(
+                    '2024 табір',
+                    'Як краще вивчити англійську? Звичайно у таборі!',
+                    imgUrl + 'picknick.jpg',
+                    btn = 'Сторінка про нас',
+                    imgUrl = imgUrl,
+                    h2Title = true,
+                    class = 'card-row__reverse'
+                    ) %}
+                    <div class="card-row__content content">
+                        {% set list = [
+                            '<b>Вправи з англійскої</b>' | safe,
+                            '<b>Вожаті- викладачі англійської мови</b>' | safe,
+                            '<strong>10 днів</strong>' | safe,
+                            '<strong>Дискотеки</strong>' | safe,
+                            '<strong>Подорожі</strong>' | safe,
+                            '<strong>Екскурсії</strong>' | safe,
+                            '<strong>Конкурси та ігри</strong>' | safe
+                        ] %}
+                        <ul>
+                            {% for text in list %}
+                                <li>{{ text }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endcall %}
+            {% endcall %}
+
+            {% call cardSection(
+                class = 'section__half'
+                ) %}
+                {% call cardRow(
+                    '🎬 Кіно',
+                    'ЯК ПРОВОДИМО ВІЛЬНИЙ ЧАС В НАШІЙ ШКОЛІ?',
+                    imgUrl + 'move.jpg',
+                    btn = 'ЗАЛИШИТИ ЗАЯВКУ',
+                    imgUrl = imgUrl,
+                    h2Title = true
+                    ) %}
+                {% endcall %}
+            {% endcall %}
+
+            {{ banner(
+                'banner__accent',
+                imgServerUrl,
+                iconUrl
+            ) }}
+
+            {% call cardSection(
+                class = 'section__half'
+                ) %}
+                {% call cardRow(
+                    '🧩 Ігри<br> 🛣 Подорожі' | safe,
+                    'та багато іншого',
+                    imgUrl + 'games.png',
+                    btn = 'Про табір',
+                    h2Title = true,
+                    class = 'card-row__reverse',
+                    imgSmall = true
+                    ) %}
+                {% endcall %}
+            {% endcall %}
+
+            {% include 'components/contact.njk' %}
+        </main>
+        {% include 'components/footer.njk' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% set addressData = [
+    {
+        text: 'м. Полтава, вулиця Небесної Сотні, 124',
+        icon: 'map'
+    },
+    {
+        text: '+38 (066) 086 85 89',
+        icon: 'call',
+        link: 'tel:+380660868589'
+    },
+    {
+        text: 'testmail@testmail.com',
+        icon: 'email',
+        link: 'mailto:testmail@testmail.com'
+    },
+    {
+        text: 'Пн – Нд: 09.00 – 21.00',
+        icon: 'clock'
+    }
+] %}
+
+<address class="address">
+    <ul>
+        {% for item in addressData %}
+            <li class="address__item">
+                <svg class="icon icon__fill" width="16" height="17">
+                    <use href="{{ iconUrl }}#{{ item.icon }}"></use>
+                </svg>
+                {% if item.link %}
+                    <a href="{{ item.link }}">
+                        {{ item.text }}
+                    </a>
+                {% else %}
+                    {{ item.text }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</address>

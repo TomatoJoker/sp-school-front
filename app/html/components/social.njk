@@ -1,0 +1,17 @@
+{% macro social(iconUrl, class ) %}
+    <div class="social{{ ' ' + class if class }}">
+        <h4 class="social__title">Ми в соцальних мережах:</h4>
+        <ul class="social__row">
+            {% set social = ['facebook', 'instagram'] %}
+            {% for item in social %}
+                <li class="social__item">
+                    <a href="#" target="_blank" rel="nofollow" aria-label="link to {{ item }}">
+                        <svg class="icon icon__fill" width="19" height="19">
+                            <use href="{{ iconUrl }}#{{ item }}"></use>
+                        </svg>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}

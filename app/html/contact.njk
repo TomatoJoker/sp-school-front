@@ -1,0 +1,20 @@
+{% set title = 'contact' %}
+{% set stylesPage = ['contact-page'] %}
+{#{% set stylesVendor = ['your-name-vendor-style-name'] %} #}{# include style vendor #}
+{% set scriptsVendor = ['imask'] %}  {# include script vendor #}
+{% set scripts = ['contact-mask'] %}
+
+{% import "components/social.njk" as social %}
+{% set social = social.social %}
+
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include 'components/header.njk' %}
+        <main class="main">
+            {% include 'components/contact.njk' %}
+        </main>
+        {% include 'components/footer.njk' %}
+    </div>
+{% endblock %}

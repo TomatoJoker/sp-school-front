@@ -1,0 +1,21 @@
+.list-images {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+
+  @include media($tablet-pro) {
+    overflow: auto;
+    min-width: min-content;
+  }
+
+  &__row {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__list-item {
+    @include media($tablet-pro) {
+      flex-shrink: 0;
+    }
+  }
+}

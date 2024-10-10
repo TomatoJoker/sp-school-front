@@ -1,0 +1,10 @@
+.icon {
+  display: inline-block;
+  fill: none;
+  stroke: currentColor;
+
+  &__fill {
+    fill: currentColor;
+    stroke: none;
+  }
+}

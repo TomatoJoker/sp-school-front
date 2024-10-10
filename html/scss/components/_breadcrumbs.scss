@@ -1,0 +1,7 @@
+.breadcrumbs {
+  color: $second-text;
+
+  a {
+    @extend %link;
+  }
+}

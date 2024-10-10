@@ -1,0 +1,40 @@
+<section class="contact section section__decor">
+    <div class="container">
+        <div class="contact__top">
+            <div class="contact__img">
+                <img src="{{ imgServerUrl }}section-decor.png" width="389" height="430" alt="">
+            </div>
+            <div class="contact__form">
+                <h2 class="contact__title h2-title title-accent heading heading__medium">{{ 'ФОРМА ЗВ’ЯЗКУ' | lower }}</h2>
+                <form class="form">
+                    {% set fields = [
+                        ['ІМ’Я', 'name'],
+                        ['ПОШТА', 'email'],
+                        ['ТЕЛЕФОН', 'phone', 'js-phone-mask']
+                    ] %}
+                    {% for text, id, class in fields %}
+                        <div class="form__field">
+                            <input id="{{ id }}" class="form__input{{ ' ' + class if class }}" type="text">
+                            <label class="form__label" for="{{ id }}">{{ text | lower }}</label>
+                        </div>
+                    {% endfor %}
+                    <div class="form__btn">
+                        <button class="btn-full-reset btn btn__dark" type="submit">{{ 'ВІДПРАВИТИ' | lower }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="contact__bottom">
+            <div class="contact__address">
+                <h3 class="h2-title title-accent heading heading__medium">Контакти</h3>
+                {% include 'components/address.njk' %}
+                {{ social(iconUrl, 'contact__social') }}
+            </div>
+            <div class="contact__map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2587.159906216619!2d34.580360676170386!3d49.575872549948734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d82f7f0801f425%3A0x79b21a119619a29c!2z0LLRg9C7LiDQndC10LHQtdGB0L3QvtGXINCh0L7RgtC90ZYsIDEyNCwg0J_QvtC70YLQsNCy0LAsINCf0L7Qu9GC0LDQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCAzNjAwMA!5e0!3m2!1sru!2sua!4v1727130620193!5m2!1sru!2sua"
+                        width="600" height="422" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>

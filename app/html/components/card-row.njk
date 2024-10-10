@@ -1,0 +1,40 @@
+{% import 'components/list-images.njk' as macro %}
+{% set listImages = macro.listImages %}
+
+{% macro cardRow(title, subtitle, img, btn, imgUrl, rowSecond, class, h2Title ,classTitle, imgSmall) %}
+    <li class="card-row{{ ' ' + class if class }}">
+        <div class="card-row__item card-row__text-wrapper">
+            <div class="heading">
+                {% if h2Title %}
+                    <h2 class="card-row__title title-dark h2-title">{{ title }}</h2>
+                {% else %}
+                    <h3 class="card-row__title title-dark{% if classTitle %} h1-title{% else %} h2-title{% endif %}">{{ title }}</h3>
+                {% endif %}
+                {% if subtitle %}
+                    <p class="card-row__description heading__description h3-title title-dark">
+                        {{ subtitle }}
+                    </p>
+                {% endif %}
+            </div>
+            <div>
+                <p>SP SCHOOL -це сучасна школа англійської мови, де навчання перетворюється на цікаву та інтерактивну
+                    мандрівку. Наші досвідчені викладачі знають підхід до кожного учня та застосовують інноваційні
+                    методи, щоб швидко надати середу. для ефективного вивчення англійської мови</p>
+            </div>
+            {{ caller() }}
+            <div class="card-row__btn">
+                <a href="#" class="btn btn__dark">{{ btn }}</a>
+            </div>
+        </div>
+        <div class="card-row__item card-row__img">
+            {% if imgSmall %}
+                <img src="{{ img }}" width='501' height='239' alt="">
+            {% else %}
+                <img src="{{ img }}" width='657' height='474' alt="">
+            {% endif %}
+        </div>
+        {% if imgUrl %}
+            {{ listImages(imgUrl, 'card-row__list-wrapper', rowSecond) }}
+        {% endif %}
+    </li>
+{% endmacro %}

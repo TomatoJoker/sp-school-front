@@ -1,0 +1,115 @@
+.journal {
+
+  &__row {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    @include min-media($tablet-pro) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 20px;
+    }
+  }
+
+  &__heading-wrapper {
+    @include min-media($tablet-pro) {
+      max-width: 642px;
+    }
+  }
+
+  &__buttons-row {
+    margin-top: 40px;
+
+    @include min-media($tablet-pro) {
+      margin-top: $m-medium;
+    }
+
+  }
+
+  &__img {
+    @include media($tablet-pro) {
+      width: 100%;
+      height: auto;
+    }
+
+    @include min-media($tablet-pro) {
+      flex-shrink: 0;
+    }
+  }
+
+  $gap: 14px;
+  &__card-wrapper {
+    @include min-media($tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $gap;
+    }
+  }
+
+  &__card {
+    background: $light;
+    @extend %radius;
+    padding: 30px;
+
+    &:nth-child(2) {
+      background: $label-color;
+    }
+
+    &:nth-child(4) {
+      background: $accent;
+
+      .journal__card-icon {
+        background: $label-color;
+      }
+
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+
+      .journal__card-icon {
+        background: $text-accent;
+      }
+
+    }
+
+    &:nth-child(1),
+    &:nth-child(4) {
+      color: $text-accent;
+    }
+
+    @include media($small-tablet) {
+      @include mb(21px);
+    }
+
+    @include min-media($tablet) {
+      @include flex-basis-responsive(2, $gap);
+    }
+
+    @include min-media($desktop) {
+      @include flex-basis-responsive(4, $gap);
+    }
+
+  }
+
+  &__card-icon {
+    @extend %radius;
+    @include size(40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $accent;
+    color: $light;
+  }
+
+  &__title {
+    margin-top: $m-small;
+  }
+
+  &__card-text {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+}

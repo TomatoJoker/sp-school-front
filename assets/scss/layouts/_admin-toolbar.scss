@@ -1,0 +1,17 @@
+.admin-toolbar {
+  background: $accent;
+  padding: 8px 10px;
+
+  &,
+  & .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    @extend .text-small;
+  }
+}

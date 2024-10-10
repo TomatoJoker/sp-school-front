@@ -1,0 +1,48 @@
+{# include style #}
+{% set title = 'Цікаво' %}
+{% set stylesPage = ['blog-page'] %}
+{#{% set stylesVendor = ['your-name-vendor-style-name'] %} #}{# include style vendor #}
+{% set scriptsVendor = ['imask'] %}  {# include style vendor #}
+{% set scripts = ['contact-mask'] %}
+
+{% import "components/social.njk" as social %}
+{% set social = social.social %}
+{% import "layouts/sections.njk" as sections %}
+{% set heroDefault = sections.heroDefault %}
+{% set blogSection = sections.blogSection %}
+
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include 'components/header.njk' %}
+        <main class="main">
+            {% call heroDefault(
+                title,
+                'Цікаво',
+                img = imgUrl + 'blog.jpg',
+                class = 'default-hero__small'
+                ) %}
+
+            {% endcall %}
+
+            {{ blogSection(
+                title = 'Блог',
+                img = imgUrl,
+                tabs = [['Індивідуальний урок', true], ['Навчання в групах'], ['Підготовка до НМТ'], ['Підготовка до ЕВІ']],
+                list = [
+                    '1', '2', '3', '4',
+                    '1', '2', '3', '4',
+                    '1', '2', '3', '4',
+                    '1', '2', '3', '4'
+                ],
+                btn = 'Більше',
+                btnClass = 'blog-section__btn-wrapper-large',
+                class = 'section__half section__half-bottom'
+            ) }}
+
+            {% include 'components/contact.njk' %}
+        </main>
+        {% include 'components/footer.njk' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,99 @@
+.edit-day {
+  padding: 31px 0px;
+
+  &__back-link {
+
+    a {
+      color: $second-text;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+
+      @include hover {
+        color: $accent;
+      }
+    }
+
+  }
+
+  &__heading {
+    display: none;
+
+    @include min-media($tablet) {
+      display: block;
+    }
+
+  }
+
+  &__row {
+    padding: 0px 29px;
+
+    @include min-media($tablet) {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 80px 115px 146px 1fr 210px;
+      gap: 0px 20px;
+    }
+  }
+
+  &__item {
+    padding-top: 34px;
+    padding-bottom: 34px;
+    border-radius: 20px;
+    background: $light;
+    margin-bottom: 0px;
+
+    &:not(:last-child) {
+      margin-bottom: 22px;
+    }
+  }
+
+  &__item-info {
+    font-weight: 700;
+    
+    @include media($tablet) {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0px 10px;
+
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__label-mob {
+    font-weight: 400;
+    margin-bottom: 7px;
+
+    @include min-media($tablet) {
+      display: none;
+      margin-bottom: 0px;
+    }
+  }
+
+  &__title {
+    margin-top: 33px;
+    margin-left: 10px;
+  }
+
+  &__table {
+    margin-top: 22px;
+  }
+
+  &__buttons-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 16px;
+
+    @include min-media($tablet) {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+    }
+  }
+}

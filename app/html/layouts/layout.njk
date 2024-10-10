@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no"/>
+  <title>{{ title }}</title>
+  {% if stylesVendor %}
+    {% for style in stylesVendor %}
+      <link rel="stylesheet" type="text/css" href="./css/vendors/{{ style }}.min.css">
+    {% endfor %}
+  {% endif %}
+  <link rel="stylesheet" type="text/css" href="./css/common.min.css">
+  {% if stylesPage %}
+    {% for stylePage in stylesPage %}
+      <link rel="stylesheet" type="text/css" href="./css/{{ stylePage }}.min.css">
+    {% endfor %}
+  {% endif %}
+</head>
+<body>
+{% set imgUrl = 'http://www.sp-school.com.ua/wp-content/uploads/2024/09/' %}
+{% set imgServerUrl = './img/' %}
+{% set iconUrl = './sprite/sprite.svg' %}
+{% block content %}
+{% endblock %}
+
+{% if scriptsVendor %}
+  {% for script in scriptsVendor %}
+    <script src="js/{{ script }}.min.js"></script>
+  {% endfor %}
+{% endif %}
+{% if scripts %}
+  {% for script in scripts %}
+    <script src="js/{{ script }}.min.js"></script>
+  {% endfor %}
+{% endif %}
+<script src="js/common.min.js"></script>
+<!-- navigation js -->
+<script src="js/navigation.min.js"></script>
+</body>
+</html>

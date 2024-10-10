@@ -1,0 +1,380 @@
+body:not(.wp-admin),
+body.wp-admin #wpcontent {
+  font-size: 14px;
+  box-sizing: border-box;
+  background-position: top center;
+  background-size: cover;
+  color: $dark;
+  font-family: "Montserrat", system-ui;
+  font-optical-sizing: auto;
+}
+
+body.toplevel_page_calendar,
+body.toplevel_page_calendar * {
+  box-sizing: border-box;
+}
+
+span, a, p, strong, em, b, h4, .h4-title {
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  @extend %radius;
+}
+
+.container {
+  max-width: $site-container;
+  width: 100%;
+  padding-left: $padding;
+  padding-right: $padding;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+*:focus, *:focus-visible {
+  outline: none !important;
+}
+
+h3, h4, h4, h6 {
+  display: block;
+  font-weight: 700;
+}
+
+h1, .h1-title {
+  @extend %h1-title;
+}
+
+h2, .h2-title {
+  @extend %h2-title;
+}
+
+h3, .h3-title {
+  @extend %h3-title;
+}
+
+h4, .h4-title {
+  @extend %h4-title;
+}
+
+.content {
+
+  b {
+    font-weight: 700;
+  }
+
+  ul {
+    padding-left: 23px;
+  }
+
+  li {
+    list-style: disc;
+
+    strong {
+      font-weight: 700;
+      color: $label-color;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    @extend %h3-title;
+    @extend %title-dark;
+  }
+
+  img {
+    @include mb($m-small);
+  }
+
+  $padding: 10px;
+  h1,
+  h2,
+  h3,
+  img,
+  ul,
+  p {
+    @include mt($m-small);
+  }
+
+  h1,
+  h2,
+  h3,
+  ul,
+  ol,
+  p {
+    @include min-media($desktop) {
+      padding-left: $padding;
+    }
+  }
+
+  p {
+
+    & + p {
+      @include mt(20px);
+    }
+  }
+
+  ul {
+    padding-left: 30px;
+
+    li {
+      list-style: disc;
+    }
+  }
+
+  img {
+
+    @include min-media($desktop) {
+      width: calc(100% + #{$padding});
+      margin-left: calc(0px - #{$padding});
+    }
+
+  }
+}
+
+.title-dark {
+  color: $dark-accent;
+}
+
+.title-accent {
+  color: $accent;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.btn-full-reset {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.disable {
+  pointer-events: none !important;
+}
+
+.input,
+select.input,
+input.input,
+textarea.input {
+
+  &,
+  &:not([type='checkbox']) {
+    background: $light;
+    border-radius: 10px;
+    padding: 12px 21px;
+    width: 100%;
+    font: inherit;
+    font-weight: 700;
+    border: 1px solid $transparent;
+    outline: none;
+    @include transition;
+    box-shadow: none !important;
+    color: $dark;
+
+    &:focus {
+      border-color: $accent;
+    }
+
+    @include min-media($small-tablet) {
+      max-width: 160px;
+    }
+
+  }
+
+  &__disable[class] {
+
+    &:focus {
+      border-color: $transparent;
+    }
+  }
+
+  &__disable-dark[class] {
+
+    &:focus {
+      border-color: $dark;
+    }
+  }
+
+  &__large {
+
+    &:not([type='checkbox']) {
+
+      @include min-media($small-tablet) {
+        max-width: 328px;
+      }
+
+    }
+
+  }
+
+  &__textarea[class] {
+    max-width: 565px;
+    resize: none;
+    min-height: 179px;
+  }
+
+  &__dark[class] {
+    border: 1px solid $dark;
+    min-height: 98px;
+  }
+}
+
+.text-small {
+  @include font-settings(12, 14.5);
+}
+
+.is-open {
+  @extend %is-visible;
+  max-height: 9999px;
+}
+
+.is-close {
+  @extend %is-hidden;
+  max-height: 0;
+}
+
+.section {
+  padding: 50px 0px;
+
+  @include min-media($desktop) {
+    padding: $m-extra 0px;
+  }
+
+  &__accent {
+    background-color: $second-light;
+  }
+
+  &__accent-light {
+    background: #FAF3F2;
+  }
+
+  &__decor {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    &:before {
+      background-image: url('../img/why-us-decor.png');
+      @include size(360);
+      top: 25px;
+      left: 0px;
+
+      @include min-media($desktop) {
+        @include size(1078);
+        top: 0px;
+        transform: translate(-10%, -10%);
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__half {
+    padding-top: 37.5px;
+    padding-bottom: 37.5px;
+
+    @include min-media($desktop) {
+      padding-top: 75px;
+      padding-bottom: 75px;
+    }
+  }
+
+  &__half-bottom {
+    padding-top: 0px;
+  }
+
+}
+
+.link {
+  @extend %link;
+}
+
+.label {
+  border-radius: 40px;
+  background: $label-color;
+  color: $light;
+  @extend %h3-title;
+  padding: 6px;
+  padding-left: 29px;
+  padding-right: 29px;
+  display: inline-flex;
+  align-items: center;
+
+  @include min-media($tablet-pro) {
+    padding-left: 34px;
+    padding-right: 38px;
+  }
+
+  .icon {
+    color: $dark;
+    position: absolute;
+    top: -28px;
+    right: 0px;
+
+    @include media($tablet-pro) {
+      width: 29px;
+      height: 38px;
+      top: -14px;
+    }
+  }
+}
+
+.logo {
+  cursor: pointer;
+  display: inline-block;
+
+  @include hover {
+    transform: scale(1.2);
+  }
+
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  @extend %h4-title;
+}

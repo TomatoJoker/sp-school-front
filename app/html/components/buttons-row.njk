@@ -1,0 +1,10 @@
+{% macro buttonsRow(link = 'детальніше', button = 'Записатись', class, linkClass, buttonClass) %}
+    <ul class="button-row{{ ' ' + class if class }}">
+        <li>
+            <a href="#" class="button-row__link link h3-title {{ ' ' + linkClass if linkClass}}">{{ link }}</a>
+        </li>
+        <li>
+            <a href="#" class="btn{{ ' ' + buttonClass if buttonClass}}">{{ button }}</a>
+        </li>
+    </ul>
+{% endmacro %}

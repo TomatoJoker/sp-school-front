@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 626px;
+  $padding: 32px;
+
+  &__field {
+    border-bottom: 1px solid $dark;
+    position: relative;
+  }
+
+  &__label {
+    position: absolute;
+    @include transformY-center;
+    left: $padding;
+    @include transition;
+    text-transform: uppercase;
+    color: #848484;
+  }
+
+  &__input {
+    padding: 18px $padding;
+    border: none;
+    width: 100%;
+
+    &:focus + label {
+      transform: translateY(calc(-100% - 10px));
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    .btn {
+      text-transform: uppercase;
+    }
+  }
+}

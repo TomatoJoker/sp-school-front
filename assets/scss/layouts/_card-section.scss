@@ -1,0 +1,11 @@
+.card-section {
+
+  &__item {
+    @include mb(70px);
+
+    @include min-media($desktop) {
+      @include mb(150px);
+    }
+  }
+
+}

@@ -1,0 +1,39 @@
+{% import "components/menu.njk" as macros %}
+{% set menu = macros.menu %}
+{% set menuData = ['Про нас', 'Ціни', 'Дозвілля', 'Цікаво', 'Контакти'] %}
+
+<header class="header">
+    <div class="admin-toolbar">
+        <p>запис на літній табір у Карпатах  ✅</p>
+    </div>
+    <div class="container">
+        <div class="header__row js-dropdown-wrapper">
+            <nav class="header__modal js-dropdown-block" id="dataNav">
+                {{ menu(menuData) }}
+                {% include 'components/lang.njk' %}
+            </nav>
+            <div class="header__left">
+                <a href="/" class="logo">
+                    <img src="{{ imgUrl }}logo.svg" width="70" height="29" alt="">
+                </a>
+                <nav>
+                    {{ menu(menuData) }}
+                </nav>
+            </div>
+            <div class="header__right">
+                <a href="https://www.sp-school.com.ua/wp-admin/" class="header__btn btn btn__dark btn__small">
+                    <svg width="20" height="18">
+                        <use href="{{ iconUrl }}#book"></use>
+                    </svg>
+                    <span>Особистий щоденник</span>
+                </a>
+                {% include 'components/lang.njk' %}
+                <button type="button" class="btn-full-reset header__burger js-dropdown-btn" aria-label="burger menu button" aria-expanded="false" aria-controls="dataNav">
+                    <span class="header__burger-wrapper">
+                        <span></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
